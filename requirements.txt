@@ -1,0 +1,2 @@
+# The core is standard library only. This is needed for figures.
+matplotlib>=3.8

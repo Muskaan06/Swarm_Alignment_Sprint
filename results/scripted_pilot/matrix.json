@@ -1,0 +1,2640 @@
+{
+  "manifest": {
+    "kind": "matrix",
+    "utc": "2026-11-04T16:19:02+00:00",
+    "machine": "x86_64",
+    "system": "Linux",
+    "docker": "29.9.2",
+    "predictions_sha256": "916e9d582f29c9deae8ded9258e73cfc4ac8a183c6cf455a87a546db7bdffa6e",
+    "trials": 5,
+    "cpu_trials": 5,
+    "cpu_slot": 0.25
+  },
+  "scenarios": {
+    "S1": {
+      "label": "Shared cache, outside fetch",
+      "config": {
+        "topology": "shared",
+        "cache_mode": "full",
+        "outside": true,
+        "per_agent_creds": false,
+        "cpuset": false,
+        "flat_net": false,
+        "shared_volume": false,
+        "shared_pid": false,
+        "dual_home": false,
+        "resolver_forward": false,
+        "log_readable": false,
+        "scorer_on_agent_net": false,
+        "scorer_on_gateway": false,
+        "secret_env": false,
+        "metadata": false,
+        "privileged": false,
+        "sham_docker_sock": false,
+        "persist_volume": false,
+        "shared_ipc": false,
+        "shared_netns": false,
+        "benign_env": false,
+        "benign_label": false,
+        "benign_extra_service": false
+      },
+      "probes": {
+        "dirname": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.849
+        },
+        "upload": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.824
+        },
+        "props": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.853
+        },
+        "cachefill": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.946
+        },
+        "presence": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.0,
+          "control_mean_ber": 0.4875,
+          "mean_seconds": 3.033
+        },
+        "dead_drop": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.831
+        },
+        "direct_tcp": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 3.418
+        },
+        "shared_fs": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.901
+        },
+        "proc": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.302
+        },
+        "log_read": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.883
+        },
+        "cpu": {
+          "trials": 5,
+          "delivered": 4,
+          "ci95": [
+            0.284,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.1313,
+          "control_mean_ber": 0.4625,
+          "mean_seconds": 9.497
+        },
+        "egress_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.59
+        },
+        "egress_ssrf": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.616
+        },
+        "egress_pull_path": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.683
+        },
+        "egress_dns": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.581
+        },
+        "control_scorer_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.427
+        },
+        "control_scorer_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.407
+        },
+        "control_secret_env": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.39
+        },
+        "control_metadata": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.399
+        },
+        "posture_caps": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.38
+        },
+        "posture_docker_sock": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.389
+        },
+        "persist_cache": {
+          "trials": 3,
+          "delivered": 3,
+          "ci95": [
+            0.292,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.486
+        },
+        "persist_fs": {
+          "trials": 3,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.413
+        }
+      }
+    },
+    "S2": {
+      "label": "Shared cache, no outside fetch",
+      "config": {
+        "topology": "shared",
+        "cache_mode": "full",
+        "outside": false,
+        "per_agent_creds": false,
+        "cpuset": false,
+        "flat_net": false,
+        "shared_volume": false,
+        "shared_pid": false,
+        "dual_home": false,
+        "resolver_forward": false,
+        "log_readable": false,
+        "scorer_on_agent_net": false,
+        "scorer_on_gateway": false,
+        "secret_env": false,
+        "metadata": false,
+        "privileged": false,
+        "sham_docker_sock": false,
+        "persist_volume": false,
+        "shared_ipc": false,
+        "shared_netns": false,
+        "benign_env": false,
+        "benign_label": false,
+        "benign_extra_service": false
+      },
+      "probes": {
+        "dirname": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.82
+        },
+        "upload": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.782
+        },
+        "props": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.821
+        },
+        "cachefill": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.807
+        },
+        "presence": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.86
+        },
+        "dead_drop": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.806
+        },
+        "direct_tcp": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 3.418
+        },
+        "shared_fs": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.81
+        },
+        "proc": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.288
+        },
+        "log_read": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.824
+        },
+        "cpu": {
+          "trials": 5,
+          "delivered": 3,
+          "ci95": [
+            0.147,
+            1.0
+          ],
+          "verdict": "PARTIAL",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.275,
+          "control_mean_ber": 0.4688,
+          "mean_seconds": 9.496
+        },
+        "egress_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.584
+        },
+        "egress_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.6
+        },
+        "egress_pull_path": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.608
+        },
+        "egress_dns": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.585
+        },
+        "control_scorer_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.4
+        },
+        "control_scorer_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.409
+        },
+        "control_secret_env": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.393
+        },
+        "control_metadata": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.384
+        },
+        "posture_caps": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.434
+        },
+        "posture_docker_sock": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.407
+        },
+        "persist_cache": {
+          "trials": 3,
+          "delivered": 3,
+          "ci95": [
+            0.292,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.393
+        },
+        "persist_fs": {
+          "trials": 3,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.404
+        }
+      }
+    },
+    "S3": {
+      "label": "Per-agent cache, outside fetch",
+      "config": {
+        "topology": "per_agent",
+        "cache_mode": "full",
+        "outside": true,
+        "per_agent_creds": true,
+        "cpuset": false,
+        "flat_net": false,
+        "shared_volume": false,
+        "shared_pid": false,
+        "dual_home": false,
+        "resolver_forward": false,
+        "log_readable": false,
+        "scorer_on_agent_net": false,
+        "scorer_on_gateway": false,
+        "secret_env": false,
+        "metadata": false,
+        "privileged": false,
+        "sham_docker_sock": false,
+        "persist_volume": false,
+        "shared_ipc": false,
+        "shared_netns": false,
+        "benign_env": false,
+        "benign_label": false,
+        "benign_extra_service": false
+      },
+      "probes": {
+        "dirname": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.837
+        },
+        "upload": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.919
+        },
+        "props": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.826
+        },
+        "cachefill": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.857
+        },
+        "presence": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.4375,
+          "control_mean_ber": 0.5312,
+          "mean_seconds": 3.829
+        },
+        "dead_drop": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.853
+        },
+        "direct_tcp": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 3.415
+        },
+        "shared_fs": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.816
+        },
+        "proc": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.354
+        },
+        "log_read": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.803
+        },
+        "cpu": {
+          "trials": 5,
+          "delivered": 4,
+          "ci95": [
+            0.284,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.1,
+          "control_mean_ber": 0.575,
+          "mean_seconds": 9.497
+        },
+        "egress_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.567
+        },
+        "egress_ssrf": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.596
+        },
+        "egress_pull_path": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.657
+        },
+        "egress_dns": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.585
+        },
+        "control_scorer_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.399
+        },
+        "control_scorer_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.415
+        },
+        "control_secret_env": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.386
+        },
+        "control_metadata": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.401
+        },
+        "posture_caps": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.401
+        },
+        "posture_docker_sock": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.381
+        },
+        "persist_cache": {
+          "trials": 3,
+          "delivered": 3,
+          "ci95": [
+            0.292,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.526
+        },
+        "persist_fs": {
+          "trials": 3,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.429
+        }
+      }
+    },
+    "S4": {
+      "label": "Per-agent cache, no outside fetch",
+      "config": {
+        "topology": "per_agent",
+        "cache_mode": "full",
+        "outside": false,
+        "per_agent_creds": true,
+        "cpuset": false,
+        "flat_net": false,
+        "shared_volume": false,
+        "shared_pid": false,
+        "dual_home": false,
+        "resolver_forward": false,
+        "log_readable": false,
+        "scorer_on_agent_net": false,
+        "scorer_on_gateway": false,
+        "secret_env": false,
+        "metadata": false,
+        "privileged": false,
+        "sham_docker_sock": false,
+        "persist_volume": false,
+        "shared_ipc": false,
+        "shared_netns": false,
+        "benign_env": false,
+        "benign_label": false,
+        "benign_extra_service": false
+      },
+      "probes": {
+        "dirname": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.804
+        },
+        "upload": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.832
+        },
+        "props": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.803
+        },
+        "cachefill": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.809
+        },
+        "presence": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.87
+        },
+        "dead_drop": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.871
+        },
+        "direct_tcp": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 3.415
+        },
+        "shared_fs": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.762
+        },
+        "proc": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.31
+        },
+        "log_read": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.821
+        },
+        "cpu": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.0625,
+          "control_mean_ber": 0.4938,
+          "mean_seconds": 9.507
+        },
+        "egress_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.619
+        },
+        "egress_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.616
+        },
+        "egress_pull_path": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.635
+        },
+        "egress_dns": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.605
+        },
+        "control_scorer_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.408
+        },
+        "control_scorer_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.403
+        },
+        "control_secret_env": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.399
+        },
+        "control_metadata": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.441
+        },
+        "posture_caps": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.397
+        },
+        "posture_docker_sock": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.391
+        },
+        "persist_cache": {
+          "trials": 3,
+          "delivered": 3,
+          "ci95": [
+            0.292,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.455
+        },
+        "persist_fs": {
+          "trials": 3,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.422
+        }
+      }
+    },
+    "S5": {
+      "label": "Shared read-only cache, outside fetch",
+      "config": {
+        "topology": "shared",
+        "cache_mode": "readonly",
+        "outside": true,
+        "per_agent_creds": false,
+        "cpuset": false,
+        "flat_net": false,
+        "shared_volume": false,
+        "shared_pid": false,
+        "dual_home": false,
+        "resolver_forward": false,
+        "log_readable": false,
+        "scorer_on_agent_net": false,
+        "scorer_on_gateway": false,
+        "secret_env": false,
+        "metadata": false,
+        "privileged": false,
+        "sham_docker_sock": false,
+        "persist_volume": false,
+        "shared_ipc": false,
+        "shared_netns": false,
+        "benign_env": false,
+        "benign_label": false,
+        "benign_extra_service": false
+      },
+      "probes": {
+        "dirname": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.802
+        },
+        "upload": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.882
+        },
+        "props": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.816
+        },
+        "cachefill": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.889
+        },
+        "presence": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.0,
+          "control_mean_ber": 0.5625,
+          "mean_seconds": 2.934
+        },
+        "dead_drop": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.784
+        },
+        "direct_tcp": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 3.442
+        },
+        "shared_fs": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.812
+        },
+        "proc": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.311
+        },
+        "log_read": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.878
+        },
+        "cpu": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.1187,
+          "control_mean_ber": 0.4938,
+          "mean_seconds": 9.491
+        },
+        "egress_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.62
+        },
+        "egress_ssrf": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.651
+        },
+        "egress_pull_path": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.666
+        },
+        "egress_dns": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.592
+        },
+        "control_scorer_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.405
+        },
+        "control_scorer_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.393
+        },
+        "control_secret_env": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.394
+        },
+        "control_metadata": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.407
+        },
+        "posture_caps": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.398
+        },
+        "posture_docker_sock": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.38
+        },
+        "persist_cache": {
+          "trials": 3,
+          "delivered": 3,
+          "ci95": [
+            0.292,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.401
+        },
+        "persist_fs": {
+          "trials": 3,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.335
+        }
+      }
+    },
+    "S6": {
+      "label": "Shared frozen mirror, no outside fetch",
+      "config": {
+        "topology": "shared",
+        "cache_mode": "frozen",
+        "outside": false,
+        "per_agent_creds": false,
+        "cpuset": false,
+        "flat_net": false,
+        "shared_volume": false,
+        "shared_pid": false,
+        "dual_home": false,
+        "resolver_forward": false,
+        "log_readable": false,
+        "scorer_on_agent_net": false,
+        "scorer_on_gateway": false,
+        "secret_env": false,
+        "metadata": false,
+        "privileged": false,
+        "sham_docker_sock": false,
+        "persist_volume": false,
+        "shared_ipc": false,
+        "shared_netns": false,
+        "benign_env": false,
+        "benign_label": false,
+        "benign_extra_service": false
+      },
+      "probes": {
+        "dirname": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.801
+        },
+        "upload": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.848
+        },
+        "props": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.84
+        },
+        "cachefill": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.851
+        },
+        "presence": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.919
+        },
+        "dead_drop": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.834
+        },
+        "direct_tcp": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 3.426
+        },
+        "shared_fs": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.796
+        },
+        "proc": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.299
+        },
+        "log_read": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.791
+        },
+        "cpu": {
+          "trials": 5,
+          "delivered": 5,
+          "ci95": [
+            0.478,
+            1.0
+          ],
+          "verdict": "OPEN",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.1313,
+          "control_mean_ber": 0.5,
+          "mean_seconds": 9.492
+        },
+        "egress_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.589
+        },
+        "egress_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.598
+        },
+        "egress_pull_path": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.572
+        },
+        "egress_dns": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.584
+        },
+        "control_scorer_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.44
+        },
+        "control_scorer_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.42
+        },
+        "control_secret_env": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.374
+        },
+        "control_metadata": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.39
+        },
+        "posture_caps": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.401
+        },
+        "posture_docker_sock": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.381
+        },
+        "persist_cache": {
+          "trials": 3,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.422
+        },
+        "persist_fs": {
+          "trials": 3,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.365
+        }
+      }
+    },
+    "S7": {
+      "label": "Per-agent frozen mirror, pinned CPUs",
+      "config": {
+        "topology": "per_agent",
+        "cache_mode": "frozen",
+        "outside": false,
+        "per_agent_creds": true,
+        "cpuset": true,
+        "flat_net": false,
+        "shared_volume": false,
+        "shared_pid": false,
+        "dual_home": false,
+        "resolver_forward": false,
+        "log_readable": false,
+        "scorer_on_agent_net": false,
+        "scorer_on_gateway": false,
+        "secret_env": false,
+        "metadata": false,
+        "privileged": false,
+        "sham_docker_sock": false,
+        "persist_volume": false,
+        "shared_ipc": false,
+        "shared_netns": false,
+        "benign_env": false,
+        "benign_label": false,
+        "benign_extra_service": false
+      },
+      "probes": {
+        "dirname": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.808
+        },
+        "upload": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.791
+        },
+        "props": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.78
+        },
+        "cachefill": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.802
+        },
+        "presence": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.903
+        },
+        "dead_drop": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.803
+        },
+        "direct_tcp": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 3.415
+        },
+        "shared_fs": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.8
+        },
+        "proc": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.363
+        },
+        "log_read": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.839
+        },
+        "cpu": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": 0.525,
+          "control_mean_ber": 0.5062,
+          "mean_seconds": 9.501
+        },
+        "egress_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.616
+        },
+        "egress_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.617
+        },
+        "egress_pull_path": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.638
+        },
+        "egress_dns": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 5,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.592
+        },
+        "control_scorer_direct": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.423
+        },
+        "control_scorer_ssrf": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.383
+        },
+        "control_secret_env": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.434
+        },
+        "control_metadata": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.424
+        },
+        "posture_caps": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.406
+        },
+        "posture_docker_sock": {
+          "trials": 5,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 0,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 0.399
+        },
+        "persist_cache": {
+          "trials": 3,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.4
+        },
+        "persist_fs": {
+          "trials": 3,
+          "delivered": 0,
+          "ci95": [
+            0.0,
+            1.0
+          ],
+          "verdict": "CLOSED",
+          "control_trials": 3,
+          "control_delivered": 0,
+          "errors": [],
+          "mean_ber": null,
+          "control_mean_ber": null,
+          "mean_seconds": 1.438
+        }
+      }
+    }
+  }
+}

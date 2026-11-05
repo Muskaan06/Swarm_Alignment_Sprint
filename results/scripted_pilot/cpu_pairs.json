@@ -1,0 +1,18 @@
+{
+  "different_cpu": {
+    "receiver": "agent_b",
+    "trials": 5,
+    "delivered": 0,
+    "mean_ber": 0.5062,
+    "control_delivered": 0,
+    "control_mean_ber": 0.5125
+  },
+  "same_cpu": {
+    "receiver": "agent_c",
+    "trials": 5,
+    "delivered": 5,
+    "mean_ber": 0.0,
+    "control_delivered": 0,
+    "control_mean_ber": 0.425
+  }
+}

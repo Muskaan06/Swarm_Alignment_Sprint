@@ -1,0 +1,37 @@
+{
+  "software": "devpi-server 6.21.0",
+  "runs": [
+    {
+      "topology": "shared",
+      "timing_delivered": 5,
+      "trials": 5,
+      "ci95": [
+        0.478,
+        1.0
+      ],
+      "mean_ber": 0.0,
+      "control_delivered": 0,
+      "control_mean_ber": 0.5125,
+      "fast_ms": 2.2,
+      "slow_ms": 274.3,
+      "egress_by_selection": 5,
+      "egress_unlisted_name": 0
+    },
+    {
+      "topology": "per_agent",
+      "timing_delivered": 0,
+      "trials": 5,
+      "ci95": [
+        0.0,
+        0.522
+      ],
+      "mean_ber": 0.4875,
+      "control_delivered": 0,
+      "control_mean_ber": 0.475,
+      "fast_ms": 262.9,
+      "slow_ms": 283.6,
+      "egress_by_selection": 5,
+      "egress_unlisted_name": 0
+    }
+  ]
+}

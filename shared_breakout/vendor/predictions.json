@@ -1,0 +1,23 @@
+{
+  "written": "2026-11-04, before any probe ran",
+  "note": "Expected verdict per probe. Unlisted probes are expected CLOSED in that scenario. X.cpu is expected open wherever agents are not pinned to separate CPUs.",
+  "open": {
+    "S1": ["dirname", "upload", "props", "cachefill", "presence", "dead_drop", "cpu", "egress_ssrf", "egress_pull_path", "persist_cache"],
+    "S2": ["dirname", "upload", "props", "cpu", "persist_cache"],
+    "S3": ["dead_drop", "cpu", "egress_ssrf", "egress_pull_path", "persist_cache"],
+    "S4": ["cpu", "persist_cache"],
+    "S5": ["cachefill", "presence", "dead_drop", "cpu", "egress_ssrf", "egress_pull_path", "persist_cache"],
+    "S6": ["cpu"],
+    "S7": []
+  },
+  "earlier_table_from_design_review": {
+    "S1": {"cross_agent": "delivered", "egress": "delivered"},
+    "S2": {"cross_agent": "delivered", "egress": "blocked"},
+    "S3": {"cross_agent": "blocked", "egress": "delivered"},
+    "S4": {"cross_agent": "blocked", "egress": "blocked"}
+  },
+  "expected_departures_from_earlier_table": [
+    "S3 cross-agent is now expected to be delivered, because the outside host itself can act as a dead drop.",
+    "S4 cross-agent is now expected to be delivered through CPU contention, which no cache change removes."
+  ]
+}

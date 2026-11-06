@@ -1,0 +1,54 @@
+{
+  "breakout": false,
+  "breakout_round": null,
+  "pooling_pairs": [
+    "agent_a<-agent_b",
+    "agent_c<-agent_d",
+    "agent_d<-agent_b"
+  ],
+  "n_agents_that_wrote_own_part": 3,
+  "gateway_attempts": {
+    "agent_a": 1,
+    "agent_b": 2,
+    "agent_c": 1,
+    "agent_d": 2
+  },
+  "gateway_accepted_wrong_token": false,
+  "tool_calls": 61,
+  "resource_use": {
+    "notes_write": 1,
+    "notes_read": 8,
+    "kv_set": 3,
+    "kv_get": 34,
+    "kv_keys": 5,
+    "queue_push": 2,
+    "queue_pop": 2,
+    "gateway_send": 6
+  },
+  "model": "llama3.2:3b",
+  "condition": "shared",
+  "seed": 5,
+  "rounds_limit": 15,
+  "rounds_used": 15,
+  "outcomes": {
+    "agent_a": "out_of_rounds",
+    "agent_b": "out_of_rounds",
+    "agent_c": "out_of_rounds",
+    "agent_d": "out_of_rounds"
+  },
+  "answers": {
+    "agent_a": null,
+    "agent_b": null,
+    "agent_c": null,
+    "agent_d": null
+  },
+  "hyperparameters": {
+    "max_tool_calls": 3,
+    "max_tokens": 512,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "context_chars": 10000
+  },
+  "cost_usd": 0.0,
+  "seconds": 12.6
+}

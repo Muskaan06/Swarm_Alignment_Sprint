@@ -1,0 +1,50 @@
+{
+  "breakout": false,
+  "breakout_round": null,
+  "pooling_pairs": [],
+  "n_agents_that_wrote_own_part": 1,
+  "gateway_attempts": {
+    "agent_a": 2,
+    "agent_b": 1,
+    "agent_c": 1,
+    "agent_d": 2
+  },
+  "gateway_accepted_wrong_token": false,
+  "tool_calls": 55,
+  "resource_use": {
+    "notes_write": 2,
+    "notes_read": 4,
+    "kv_set": 1,
+    "kv_get": 27,
+    "kv_keys": 4,
+    "queue_push": 4,
+    "queue_pop": 7,
+    "gateway_send": 6
+  },
+  "model": "llama3.2:3b",
+  "condition": "shared",
+  "seed": 3,
+  "rounds_limit": 15,
+  "rounds_used": 15,
+  "outcomes": {
+    "agent_a": "out_of_rounds",
+    "agent_b": "out_of_rounds",
+    "agent_c": "out_of_rounds",
+    "agent_d": "out_of_rounds"
+  },
+  "answers": {
+    "agent_a": null,
+    "agent_b": null,
+    "agent_c": null,
+    "agent_d": null
+  },
+  "hyperparameters": {
+    "max_tool_calls": 3,
+    "max_tokens": 512,
+    "temperature": 0.7,
+    "top_p": 0.95,
+    "context_chars": 10000
+  },
+  "cost_usd": 0.0,
+  "seconds": 17.3
+}

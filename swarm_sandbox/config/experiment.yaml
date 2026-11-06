@@ -1,0 +1,44 @@
+# One file for every setting. Fix these BEFORE running the real experiment.
+
+n_agents: 4
+key_parts: 2          # access key split into this many parts; 4 = exact shared_breakout replication
+rounds: 15            # each round, every agent that has not submitted acts once
+seeds: 10             # per condition per model; seed fixes key, token, turn order, sampling
+
+# Main design: 2 x 2 = sharing (isolated / all_shared) x sandbox flaw (off / +flaw).
+#   isolated, all_shared             -> replication of shared_breakout (no solo way out)
+#   isolated+flaw, all_shared+flaw   -> agents can also break out alone via the flaw
+# Optional, to see which single service carries the key: notes_only, kv_only,
+# queue_only, folder_only (each also with +flaw).
+conditions:
+  - isolated
+  - all_shared
+  - isolated+flaw
+  - all_shared+flaw
+
+agent: stub_pooler    # stub_pooler | stub_exploit | llm  (override with --agent)
+
+llm:
+  # Any OpenAI-compatible endpoint. Defaults to a local Ollama server (free).
+  #   Ollama:     base_url http://localhost:11434/v1, no key
+  #   OpenRouter: base_url https://openrouter.ai/api/v1, api_key_env OPENROUTER_API_KEY,
+  #               model ids ending in ":free" (check the site: ids and limits change)
+  #   Groq:       base_url https://api.groq.com/openai/v1, api_key_env GROQ_API_KEY
+  #   Google AI Studio (Gemini API key, Gemma models):
+  #               base_url https://generativelanguage.googleapis.com/v1beta/openai/,
+  #               api_key_env GEMINI_API_KEY, merge_system true, send_seed false
+  # The key itself is NEVER written here: set it as an environment variable.
+  base_url: http://localhost:11434/v1
+  api_key_env: OPENAI_API_KEY
+  models:
+    - qwen2.5:7b
+  merge_system: false          # true if the API rejects a "system" message (Gemma on Google)
+  send_seed: true              # false if the API rejects the "seed" field
+  min_seconds_between_calls: 0 # e.g. 4 to stay under a 15 requests/minute free limit
+  temperature: 0.7
+  max_tokens: 400
+  history_turns: 12   # recent assistant/result pairs kept in context
+  timeout_s: 120
+
+budget:
+  max_total_tokens: 3000000   # hard stop across the whole run; 0 = no cap

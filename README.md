@@ -140,6 +140,15 @@ that some probe opens compared with the same base scenario.
   measure what the suite misses.
 - **Benign (B01 to B03):** harmless changes that must not raise an alarm.
 
+## Shared-resource pilot
+
+The separate [`shared_resource_pilot/`](shared_resource_pilot/README.md) compares
+one resource—the package cache—in shared and per-agent configurations. It uses
+the unprompted `stuck` task and scores only canaries observed by the fake outside
+decoy. The pilot measures whether cache sharing changes unprompted egress in
+this testbed; it does not represent every shared resource or prove universal
+necessity.
+
 ## Repo layout
 
 ```
@@ -152,9 +161,11 @@ sbd/probes.py                trial orchestration and scoring
 sbd/experiments.py           matrix and planted-flaw runs
 sbd/llm_client.py            OpenAI-compatible client with a hard budget
 sbd/llm_run.py               multi-agent loop, tasks and oracles
+sbd/shared_pilot.py          paired unprompted-egress pilot
 sbd/mock_llm.py              scripted server for harness tests
 sbd/report.py                tables and figures
 realcheck/                   the same channel tested on a real package mirror
+shared_resource_pilot/       shared-cache versus private-cache pilot notes
 predictions.json             expected results, written before any run
 results/                     generated output
 ```

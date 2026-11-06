@@ -1,0 +1,6 @@
+{
+  "kind": "synthetic_positive_control",
+  "condition": "shared_cache",
+  "canary_observed_by_fake_decoy": true,
+  "model_used": false
+}

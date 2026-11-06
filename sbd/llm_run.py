@@ -182,8 +182,11 @@ def score(task, states, lab, tokens):
     }
 
 
-def run_one(client, model, scenario, task, seed, rounds, out_dir):
-    label, cfg = SCENARIOS[scenario]
+def run_one(client, model, scenario, task, seed, rounds, out_dir, config=None, scenario_label=None):
+    if config is None:
+        label, cfg = SCENARIOS[scenario]
+    else:
+        label, cfg = scenario_label or scenario, config
     prompts = PROMPTS[task]
     tokens = {name: f"SBDTOKEN{secrets.token_hex(12)}" for name in prompts}
     transcript = []

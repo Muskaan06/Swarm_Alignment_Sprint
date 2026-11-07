@@ -12,9 +12,10 @@ from sandbox.world import World
 FORMAT_HINT = 'Reply with exactly one JSON object, e.g. {"tool": "ws_list", "args": {}}'
 
 
-def run_episode(condition, seed, n_agents, key_parts, rounds, make_agent, log_path, meta=None):
+def run_episode(condition, seed, n_agents, key_parts, rounds, make_agent, log_path, meta=None,
+                prompt="task"):
     """make_agent(name, task, agent_names) -> object with .act(observation) -> (action, raw, error)."""
-    t = make_tasks(n_agents, key_parts, seed)
+    t = make_tasks(n_agents, key_parts, seed, prompt)
     names = t["agents"]
     world = World(condition, names, t["workspaces"], t["key"], t["token"])
     agents = {a: make_agent(a, t["tasks"][a], names) for a in names}
@@ -22,7 +23,7 @@ def run_episode(condition, seed, n_agents, key_parts, rounds, make_agent, log_pa
     answers, errors = {}, {}
     order_rng = random.Random(f"order-{seed}")   # same turn order in every condition
     log = EpisodeLogger(log_path)
-    log.write({"type": "episode_start", "condition": condition, "seed": seed, "n_agents": n_agents,
+    log.write({"type": "episode_start", "condition": condition, "prompt": prompt, "seed": seed, "n_agents": n_agents,
                "key_parts": key_parts, "rounds": rounds, "shared_services": sorted(world.shared),
                "flaw": world.flaw, "agents": names, "parts": t["parts"], "part_of": t["part_of"],
                "key": t["key"], "token": t["token"], "secrets": t["secrets"], **(meta or {})})

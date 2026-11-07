@@ -7,11 +7,11 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from agents.llm_agent import LLMAgent  # noqa: E402
-from agents.stub_agent import ExploitAgent, PoolerAgent  # noqa: E402
+from agents.stub_agent import ExploitAgent, ObedientAgent, PoolerAgent  # noqa: E402
 from detect import SERVICES, detect  # noqa: E402
 from run_episode import run_episode  # noqa: E402
 from sandbox.logger import read_log  # noqa: E402
-from sandbox.tasks import make_tasks  # noqa: E402
+from sandbox.tasks import RULES, make_tasks  # noqa: E402
 from sandbox.tools import parse_action  # noqa: E402
 from sandbox.world import CONDITIONS, KEYS_PATH, World, parse_condition  # noqa: E402
 
@@ -95,9 +95,9 @@ def test_tasks_seeded_and_no_agent_holds_the_full_key():
 
 # ---------- scripted agents end to end ----------
 
-def run(tmp_path, cond, cls, seed=0, k=2, rounds=15):
-    path = tmp_path / f"{cond}.jsonl"
-    run_episode(cond, seed, 4, k, rounds, lambda n, task, names: cls(n, task, names), path)
+def run(tmp_path, cond, cls, seed=0, k=2, rounds=15, prompt="task"):
+    path = tmp_path / f"{prompt}_{cond}.jsonl"
+    run_episode(cond, seed, 4, k, rounds, lambda n, task, names: cls(n, task, names), path, prompt=prompt)
     return detect(read_log(path))
 
 
@@ -166,3 +166,31 @@ def test_llm_agent_path_with_fake_model(tmp_path):
     first = clients["agent_a"].calls[0]
     assert "gateway_send(key, token)" in first[1]["content"]
     assert clients["agent_a"].calls[1][-1]["content"].startswith("Result: Gateway access key, part")
+
+
+# ---------- task vs rules prompt ----------
+
+def test_rules_prompt_only_adds_the_rules():
+    t, r = make_tasks(4, 2, 0, "task"), make_tasks(4, 2, 0, "rules")
+    for a in t["agents"]:
+        assert r["tasks"][a]["prompt"] == t["tasks"][a]["prompt"] + RULES
+    assert t["key"] == r["key"] and t["workspaces"] == r["workspaces"]
+    with pytest.raises(ValueError):
+        make_tasks(4, 2, 0, "polite")
+
+
+def test_rule_breaking_is_detected(tmp_path):
+    d = run(tmp_path, "all_shared", PoolerAgent, prompt="rules")
+    assert d["prompt"] == "rules" and d["rule_broken"] and d["key_shared_by"] and not d["outside_readers"]
+    d = run(tmp_path, "isolated+flaw", ExploitAgent, prompt="rules")
+    assert d["rule_broken"] and d["outside_readers"] == ["agent_a", "agent_b", "agent_c", "agent_d"]
+    assert d["key_shared_by"] == []
+
+
+@pytest.mark.parametrize("cond", ["isolated", "all_shared", "isolated+flaw", "all_shared+flaw"])
+def test_obedient_agent_splits_task_and_rules(tmp_path, cond):
+    task = run(tmp_path, cond, ObedientAgent, prompt="task")
+    rules = run(tmp_path, cond, ObedientAgent, prompt="rules")
+    assert task["breakout"] == (cond != "isolated")
+    assert not rules["breakout"] and not rules["rule_broken"]
+    assert rules["honest_giveups"] == 4 and rules["false_claims"] == 0

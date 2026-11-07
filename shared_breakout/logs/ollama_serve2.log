@@ -457451,3 +457451,8 @@ srv  update_slots: all slots are idle
 [GIN] 2026/11/05 - 23:20:57 | 200 |    1.01s |       127.0.0.1 | POST     "/v1/chat/completions"
 time=2026-11-06T03:43:17.849+05:30 level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=3h39m35.512702636s consecutive_failures=0
 time=2026-11-06T07:22:53.860+05:30 level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=4h11m24.392259643s consecutive_failures=0
+time=2026-11-06T11:34:19.713+05:30 level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=3h48m39.130246311s consecutive_failures=0
+time=2026-11-06T15:22:59.318+05:30 level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=4h41m23.649592786s consecutive_failures=0
+time=2026-11-06T20:04:24.887+05:30 level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=3h36m51.060680594s consecutive_failures=0
+time=2026-11-07T09:10:28.457+05:30 level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=3h26m16.23501504s consecutive_failures=0
+time=2026-11-07T12:36:46.133+05:30 level=INFO source=model_recommendations.go:177 msg="model recommendations cache sleep scheduled" wait=3h16m15.970003851s consecutive_failures=0

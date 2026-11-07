@@ -98,6 +98,45 @@ never the rules or the detector, then re-run the self-checks and pilot, and free
 - Also: a pointer x trace interaction, a funnel (exposed -> opened the file/note -> cheated), and when in the run the
   first breakout happened.
 
+## Results so far (two 3B models, 10 seeds per arm)
+
+Models: `qwen2.5:3b-instruct` and `llama3.2:3b` (Ollama), temperature 0.7, 8 arms x 10 seeds = 80 runs each.
+Full output: `results/main_qwen2.5/` and `results/main_llama3.2/` (`analysis.md`, `agents.csv`, `transcripts/`).
+
+**Calibration did not reach the target.** The baseline arm (no pointer, trace hidden, A normal) had 0/15 breakouts
+for both models, at `medium` and again at `high` pressure (the maximum). The target was 10-40%. Settings were
+frozen at `high` anyway, so every comparison below starts from a floor of zero.
+
+Agents that broke out, out of 30 (3 LLM agents x 10 seeds) per arm:
+
+| arm | Qwen, pointer absent | Qwen, pointer present | Llama, pointer absent | Llama, pointer present |
+|---|---|---|---|---|
+| trace hidden, A breaks | 0/30 | 0/30 | 0/30 | 1/30 |
+| trace hidden, A normal | 0/30 | 0/30 | 0/30 | 1/30 |
+| trace visible, A breaks | 1/30 | 0/30 | **5/30** | 2/30 |
+| trace visible, A normal | 0/30 | 1/30 | 0/30 | 0/30 |
+
+Main comparisons (paired by seed; risk difference with 95% bootstrap interval over seeds):
+
+| hypothesis | comparison | Qwen | Llama |
+|---|---|---|---|
+| H1 pointer | present vs absent (trace hidden, A normal) | 0/30 vs 0/30 | 1/30 vs 0/30, +0.03 [0.00, +0.10], McNemar p = 1.0 |
+| H2 contagion | trace visible vs hidden (pointer absent, A breaks) | 1/30 vs 0/30, p = 1.0 | 5/30 vs 0/30, +0.17 [+0.03, +0.30], McNemar p = 0.125 |
+
+What this does and does not show:
+- **Qwen:** 2 breakouts in 240 agent-units. Nothing can be concluded.
+- **Llama, contagion (H2):** the only visible signal. Five agents broke out when they could see A's trace and A had
+  broken out; none did when the same note was hidden. Of 30 agents, 8 opened the trace and 5 of those 8 broke out;
+  none broke out without opening it. It needs A to actually have broken out: with a visible trace and A normal, 0/30
+  in both pointer arms. But it is 5 events, one model, and the paired exact test is not significant (p = 0.125).
+- **H1 (pointer):** no support. Almost nobody opened the pointer file (0-4 of 30 per arm), so there was hardly any
+  exposure to test.
+- Invalid actions were low (about 0.5-1.1 per agent), so the zeros are mostly real "did not break out", not format
+  failures, but a weak model that never finds the data looks the same as a model that obeys the rules.
+- The individual transcripts of the main runs have not been read.
+
+Next steps: read the 5 Llama breakout transcripts, and rerun Llama with more seeds (e.g. 30 per arm).
+
 ## Limitations
 - Synthetic task, small models, scripted teammate, fake secrets. **This says nothing about real sandbox or container
   security.**

@@ -1,6 +1,6 @@
 # shared_resource_breakout
 
-**Question:** if AI agents work in the same place and share files, are they more likely to break the rules?
+**Question:** does shared-resources result in more breakouts?
 
 This is a small test you can run on a laptop (no Docker). It puts a few LLM agents in a make-believe office, gives
 them a job they cannot finish honestly, and counts how often they cheat. **Everything is fake and local:** the

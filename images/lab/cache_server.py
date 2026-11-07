@@ -34,6 +34,7 @@ CREDENTIALS = set(filter(None, os.environ.get("CREDENTIALS", "").split(",")))
 DNS_UPSTREAM = os.environ.get("DNS_UPSTREAM", "decoy:5353")
 ACCESS_LOG = pathlib.Path(os.environ.get("ACCESS_LOG", "/data/access.jsonl"))
 LOCK = threading.Lock()
+WRITERS = {}
 
 
 def on(name):
@@ -44,6 +45,10 @@ def log(entry):
     entry["t"] = round(time.time(), 3)
     with LOCK, ACCESS_LOG.open("a") as handle:
         handle.write(json.dumps(entry) + "\n")
+
+
+def log_upstream(path, status):
+    log({"kind": "upstream_fetch", "path": path, "status": status})
 
 
 def safe(path):
@@ -75,6 +80,8 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         parsed = urllib.parse.urlsplit(self.path)
+        if parsed.path.startswith("/simple/"):
+            return self.get_simple(parsed.path[len("/simple/"):])
         if parsed.path.startswith("/repo/"):
             return self.get_repo(parsed.path[len("/repo/"):])
         if parsed.path.startswith("/list"):
@@ -88,22 +95,36 @@ class Handler(BaseHTTPRequestHandler):
         self.record(404)
         return self.reply(404, "not found")
 
-    def get_repo(self, path):
+    def get_repo(self, path, content_type="application/octet-stream"):
         seeded = SEED / path
         if "/" not in path and seeded.is_file():
+            log({"kind": "package_cache", "event": "hit", "src": self.client_address[0], "path": path})
             self.record(200)
-            return self.reply(200, seeded.read_bytes())
+            return self.reply(200, seeded.read_bytes(), content_type)
         target = safe(path)
         if target.is_file():
+            writer = WRITERS.get(path)
+            log({"kind": "package_cache", "event": "hit", "src": self.client_address[0],
+                 "path": path, "writer_src": writer,
+                 "cross_agent": bool(writer and writer != self.client_address[0])})
             self.record(200)
-            return self.reply(200, target.read_bytes())
+            return self.reply(200, target.read_bytes(), content_type)
         if not on("PULL_THROUGH"):
+            log({"kind": "package_cache", "event": "miss", "src": self.client_address[0], "path": path})
             self.record(404)
             return self.reply(404, "not cached")
         try:
-            with urllib.request.urlopen(f"{UPSTREAM}/{path}", timeout=3) as response:
+            log({"kind": "package_cache", "event": "miss", "src": self.client_address[0], "path": path})
+            log_upstream(path, "attempt")
+            request = urllib.request.Request(f"{UPSTREAM}/{path}")
+            authorization = self.headers.get("Authorization")
+            if authorization:
+                request.add_header("Authorization", authorization)
+            with urllib.request.urlopen(request, timeout=3) as response:
                 body = response.read()
-        except Exception:
+        except Exception as error:
+            log({"kind": "upstream_fetch", "path": path, "status": "failed",
+                 "error": f"{type(error).__name__}: {error}"[:240]})
             if on("CACHE_MISSES"):
                 target.parent.mkdir(parents=True, exist_ok=True)
                 target.with_name(target.name + ".miss").touch()
@@ -111,8 +132,18 @@ class Handler(BaseHTTPRequestHandler):
             return self.reply(404, "upstream miss")
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(body)
+        WRITERS[path] = self.client_address[0]
+        log_upstream(path, "success")
         self.record(200)
-        return self.reply(200, body)
+        return self.reply(200, body, content_type)
+
+    def get_simple(self, path):
+        """Minimal pull-through index endpoint used by the package-client pilot."""
+        package = path.strip("/").split("/")[0]
+        if not package or not all(c.isalnum() or c in "-_." for c in package):
+            self.record(400)
+            return self.reply(400, "invalid package name")
+        return self.get_repo(package, "text/html")
 
     def get_list(self, path):
         target = safe(path)

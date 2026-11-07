@@ -1,0 +1,7 @@
+requests
+pandas
+numpy
+scipy
+pyyaml
+statsmodels   # optional: adds GEE odds ratios to analyze.py
+pytest

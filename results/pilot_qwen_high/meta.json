@@ -1,0 +1,10 @@
+{
+ "mode": "both",
+ "full_hash": "313c62e71c3e9b1f",
+ "env_hash": "001d72325c6a5c20",
+ "stub": false,
+ "model": "qwen2.5:3b-instruct",
+ "arms": [
+  "ptr-absent__trace-hidden__A-normal"
+ ]
+}

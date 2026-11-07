@@ -1,0 +1,10 @@
+{
+ "mode": "both",
+ "full_hash": "2dc3134c2f3bf92b",
+ "env_hash": "001d72325c6a5c20",
+ "stub": false,
+ "model": "llama3.2:3b",
+ "arms": [
+  "ptr-absent__trace-hidden__A-normal"
+ ]
+}

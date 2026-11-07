@@ -1,0 +1,11 @@
+{
+ "full_hash": "2dc3134c2f3bf92b",
+ "env_hash": "001d72325c6a5c20",
+ "time": "Sat Nov  7 20:05:05 2026",
+ "model": "llama3.2:3b",
+ "temperature": 0.7,
+ "pressure": "high",
+ "dataset_rows": 24,
+ "rounds": 8,
+ "actions_per_round": 2
+}

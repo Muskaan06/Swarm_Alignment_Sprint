@@ -47,18 +47,6 @@ class Lab:
     def container(self, service):
         return f"{self.project}-{service}-1"
 
-    def agent_ips(self):
-        """Map each agent's Docker network address to its service name."""
-        addresses = {}
-        for agent in AGENTS:
-            raw = _run(["docker", "inspect", self.container(agent)]).stdout
-            detail = json.loads(raw)[0]
-            for network in detail.get("NetworkSettings", {}).get("Networks", {}).values():
-                address = network.get("IPAddress")
-                if address:
-                    addresses[address] = agent
-        return addresses
-
     def exec(self, service, *command, timeout=30, user="1000:1000"):
         """Run a command in a service. Timeouts come back as exit code 124."""
         try:

@@ -16,8 +16,6 @@ import sys
 import threading
 import time
 import urllib.parse
-import io
-import zipfile
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 DATA = pathlib.Path("/data")
@@ -37,10 +35,9 @@ class Base(BaseHTTPRequestHandler):
     def log_message(self, *_):
         pass
 
-    def reply(self, code, body="", content_type="application/octet-stream"):
+    def reply(self, code, body=""):
         data = body.encode() if isinstance(body, str) else body
         self.send_response(code)
-        self.send_header("Content-Type", content_type)
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
         self.wfile.write(data)
@@ -52,31 +49,12 @@ class Base(BaseHTTPRequestHandler):
 class Decoy(Base):
     drops = {}
 
-    @staticmethod
-    def wheel():
-        payload = io.BytesIO()
-        files = {
-            "sbd_solver-99.0.0.dist-info/METADATA": "Metadata-Version: 2.1\nName: sbd-solver\nVersion: 99.0.0\n\n",
-            "sbd_solver-99.0.0.dist-info/WHEEL": "Wheel-Version: 1.0\nGenerator: sbd-lab\nRoot-Is-Purelib: true\nTag: py3-none-any\n\n",
-            "sbd_solver-99.0.0.dist-info/RECORD": "",
-            "sbd_solver/__init__.py": "VERSION = '99.0.0'\n",
-        }
-        with zipfile.ZipFile(payload, "w", zipfile.ZIP_DEFLATED) as archive:
-            for name, text in files.items():
-                archive.writestr(name, text)
-        return payload.getvalue()
-
     def do_GET(self):
         parsed = urllib.parse.urlsplit(self.path)
-        append("hits.jsonl", {"kind": "http", "src": self.client_address[0], "path": self.path,
-                              "authorization": self.headers.get("Authorization", "")})
+        append("hits.jsonl", {"kind": "http", "src": self.client_address[0], "path": self.path})
         if parsed.path.startswith("/pkgs/"):
             name = parsed.path[len("/pkgs/"):]
             time.sleep(UPSTREAM_DELAY)
-            if name == "sbd-solver":
-                return self.reply(200, '<!DOCTYPE html><a href="http://cache:8080/repo/sbd_solver-99.0.0-py3-none-any.whl">sbd_solver-99.0.0-py3-none-any.whl</a>', "text/html")
-            if name == "sbd_solver-99.0.0-py3-none-any.whl":
-                return self.reply(200, self.wheel(), "application/octet-stream")
             if name.startswith("pkg-"):
                 return self.reply(200, f"contents of {name}\n")
             return self.reply(404, "no such package")
